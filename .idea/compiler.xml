@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Rest_assured" />
+        <module name="Rest_assured (1)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11" />

@@ -24,22 +24,22 @@ public class Basics {
         String Newadress="30 Summer walk,UkA";
         System.out.println(placeID);
 
-        //Update a place for the data
-        String body="{\n" +
-                "\"place_id\":\""+placeID+"\",\n" +
-                "\"address\":\""+Newadress+"\",\n" +
-                "\"key\":\"qaclick123\"\n" +
-                "}";
-        given().log().all().queryParam("key","qaclick123").header("Content-Type","application/json").body(Files.readAllBytes(Paths.get("C:\\Users\\V22YMokhtar1\\Documents\\addplace"))).when().put("maps/api/place/update/json")
-                .then().assertThat().log().all().statusCode(200).body("msg",equalTo("Address successfully updated"));
-
-
-       String getplaceresponse = given().log().all().queryParam("key","qaclick123").queryParam("place_id",placeID).when()
-                .get("maps/api/place/get/json").then().statusCode(200).extract().response().asString();
-       JsonPath js1=Reusable_methods.rawtojson(getplaceresponse);
-       String Actualaddress= js1.getString("address");
-       System.out.println(Actualaddress);
-        Assert.assertEquals(Actualaddress,Newadress);
+//        //Update a place for the data
+//        String body="{\n" +
+//                "\"place_id\":\""+placeID+"\",\n" +
+//                "\"address\":\""+Newadress+"\",\n" +
+//                "\"key\":\"qaclick123\"\n" +
+//                "}";
+//        given().log().all().queryParam("key","qaclick123").header("Content-Type","application/json").body(Files.readAllBytes(Paths.get("C:\\Users\\V22YMokhtar1\\Documents\\addplace"))).when().put("maps/api/place/update/json")
+//                .then().assertThat().log().all().statusCode(200).body("msg",equalTo("Address successfully updated"));
+//
+//
+//       String getplaceresponse = given().log().all().queryParam("key","qaclick123").queryParam("place_id",placeID).when()
+//                .get("maps/api/place/get/json").then().statusCode(200).extract().response().asString();
+//       JsonPath js1=Reusable_methods.rawtojson(getplaceresponse);
+//       String Actualaddress= js1.getString("address");
+//       System.out.println(Actualaddress);
+//        Assert.assertEquals(Actualaddress,Newadress);
 
     }
 }
